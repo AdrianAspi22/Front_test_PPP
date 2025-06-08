@@ -1,0 +1,33 @@
+<!-- <div class="w-full border border-dashed border-am-main-blue-light rounded items-center justify-between"> -->
+  <div class="mb-4 margin-top">
+    <button color="primary" mat-flat-button (click)="fileSelector.click()">
+      Subir archivos <mat-icon fontIcon="attach_file"></mat-icon>
+    </button>
+    <input type="file" hidden #fileSelector (change)="selectedFiles($event)" accept="image/png, image/jpg, image/jpeg, application/pdf" multiple />
+  </div>
+  
+  <div fxLayout="row wrap" fxLayoutAlign="center center" class="justify-center">
+    <!-- New Files -->
+    <ng-container *ngIf="files.length">
+      <div *ngFor="let file of files; let i = index">
+        <div *ngIf="isImage(file.fileType) || isPdf(file.fileType)" class="ml-1 mr-1">
+          <a *ngIf="isImage(file.fileType)" (click)="openPreviewImage('data:' + file.fileType + ';base64,' + file.fileBase64)" class="preview-file" matTooltip="Ver">
+            <img [src]="'data:' + file.fileType + ';base64,' + file.fileBase64" class="w-42 h-32 border border-dashed border-am-main-gray-light rounded flex flex-col justify-between" />
+          </a>
+          <a *ngIf="isPdf(file.fileType)" (click)="openPreviewPdf('data:' + file.fileType + ';base64,' + file.fileBase64)" class="preview-file" matTooltip="Ver">
+            <div class="w-42 h-32 p-4 border border-dashed border-am-main-gray-light rounded flex flex-col justify-between items-center">
+              <mat-icon fontIcon="picture_as_pdf"></mat-icon> PDF cargado
+            </div>
+          </a>
+        </div>
+        <div *ngIf="file.fileName">
+          <p class="file-name">{{ file.fileName | shortenFilename:16 }}</p>
+          <p class="file-size">{{ getReadableFileSize(file.fileSize) }}</p>
+        </div>
+        <button mat-icon-button class="clear-button" (click)="removeFile(i)" matTooltip="Quitar">
+          <mat-icon class="icon-clear" fontIcon="clear"></mat-icon>
+        </button>
+      </div>
+    </ng-container>
+  </div>
+<!-- </div> -->

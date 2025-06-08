@@ -1,0 +1,91 @@
+.calendar-wrapper {
+  padding: 20px;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+
+  .calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0 16px;
+
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #1a73e8;
+    }
+
+    .create-button {
+      background-color: #1a73e8;
+      color: white;
+      border-radius: 24px;
+      padding: 0 24px;
+      height: 40px;
+      
+      mat-icon {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        background-color: #1557b0;
+      }
+    }
+  }
+
+  .calendar-container {
+    flex: 1;
+    min-height: 0;
+
+    ::ng-deep {
+      .fc {
+        height: 100%;
+        
+        .fc-toolbar {
+          padding: 0 16px;
+        }
+
+        .fc-toolbar-title {
+          font-size: 1.2rem;
+        }
+
+        .fc-button-primary {
+          background-color: #1a73e8;
+          border-color: #1a73e8;
+
+          &:hover {
+            background-color: #1557b0;
+            border-color: #1557b0;
+          }
+        }
+
+        .fc-event {
+          background-color: #1a73e8;
+          border-color: #1a73e8;
+        }
+
+        .fc-day-today {
+          background-color: #e8f0fe !important;
+        }
+
+        .fc-event-main-content {
+          display: flex;
+          flex-direction: column;
+          
+          .fc-event-time {
+            font-size: 12px;
+            opacity: 0.8;
+          }
+          
+          .fc-event-title {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+} 

@@ -1,0 +1,42 @@
+<div class="event-detail">
+  <div class="event-header">
+    <div class="color-dot"></div>
+    <h2>{{ data.title }}</h2>
+    <div class="header-actions">
+      <button class="icon-button" (click)="onEdit()">
+        <span class="material-symbols-outlined">edit</span>
+      </button>
+      <button class="icon-button" (click)="onDelete()">
+        <span class="material-symbols-outlined">delete</span>
+      </button>
+      <button class="icon-button" (click)="dialogRef.close()">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="event-content">
+    <div class="event-time">
+      <span class="material-symbols-outlined">schedule</span>
+      <div class="date-time">
+        {{ formatDate(data.start) }}
+        <span class="time">{{ formatTime(data.start) }} - {{ formatTime(data.end) }}</span>
+      </div>
+    </div>
+
+    <div class="event-location" *ngIf="data.location">
+      <span class="material-symbols-outlined">location_on</span>
+      <span>{{ data.location }}</span>
+    </div>
+
+    <div class="event-description" *ngIf="data.description">
+      <span class="material-symbols-outlined">description</span>
+      <span>{{ data.description }}</span>
+    </div>
+
+    <div class="event-organizer">
+      <span class="material-symbols-outlined">person</span>
+      <span>{{ data.creator || 'Sin organizador' }}</span>
+    </div>
+  </div>
+</div> 

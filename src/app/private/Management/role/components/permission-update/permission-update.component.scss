@@ -1,0 +1,186 @@
+.permissions-container {
+  padding: 1rem;
+  height: calc(100vh - 2rem);
+  
+  .permission-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: transparent !important;
+    border-radius: 8px;
+    overflow: hidden;
+    
+    .card-header {
+      background: linear-gradient(to right, rgba(25, 118, 210, 0.9), rgba(21, 101, 192, 0.9));
+      padding: 1rem;
+      color: white;
+      backdrop-filter: blur(5px);
+      
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        
+        .header-title {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin: 0;
+          font-size: 1.25rem;
+          color: white;
+        }
+        
+        .update-button {
+          background-color: rgba(255, 64, 129, 0.9);
+          
+          &:hover {
+            background-color: rgba(245, 0, 87, 0.9);
+          }
+        }
+      }
+    }
+    
+    .table-wrapper {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      margin: 1rem;
+      border-radius: 4px;
+      border: 1px solid rgba(224, 224, 224, 0.2);
+      background: transparent;
+      
+      .table-scroll {
+        height: calc(100vh - 200px);
+        overflow: auto;
+        
+        &::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+          background-color: rgba(241, 241, 241, 0.1);
+        }
+        
+        &::-webkit-scrollbar-thumb {
+          background: rgba(136, 136, 136, 0.3);
+          border-radius: 4px;
+          
+          &:hover {
+            background: rgba(136, 136, 136, 0.5);
+          }
+        }
+      }
+
+      .permissions-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        
+        th, td {
+          padding: 1rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(224, 224, 224, 0.1);
+          
+          &.module-column {
+            position: sticky;
+            left: 0;
+            background: transparent !important;
+            z-index: 1;
+            text-align: left;
+            padding-left: 1.5rem;
+            min-width: 200px;
+            color: #2196f3;
+            font-weight: 500;
+          }
+        }
+        
+        thead {
+          tr {
+            th {
+              position: sticky;
+              top: 0;
+              background: rgba(245, 245, 245, 0.1) !important;
+              backdrop-filter: blur(5px);
+              z-index: 2;
+              font-weight: 700;
+              white-space: nowrap;
+              color: rgba(0, 0, 0, 0.87);
+              
+              &.module-column {
+                z-index: 3;
+                background: rgba(245, 245, 245, 0.1) !important;
+
+              }
+            }
+          }
+        }
+        .dark-theme .permissions-table thead tr th {
+          color: rgba(255, 255, 255, 0.87);
+        }
+        
+        tbody {
+          tr {
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.05);
+            }
+            
+            &.even-row {
+              background-color: rgba(255, 255, 255, 0.02);
+            }
+            
+            td {
+              background: transparent !important;
+              
+              &.checkbox-column {
+                width: 100px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    ::ng-deep .permission-checkbox {
+      // Personaliza el color del checkbox cuando está seleccionado
+      .mat-checkbox-checked .mat-checkbox-background {
+        background-color: #3f51b5 !important; // Color primario de Angular Material
+      }
+    
+      // Mejora la visibilidad del borde cuando no está seleccionado
+      .mat-checkbox-frame {
+        border-color: rgba(0, 0, 0, 0.54) !important;
+        border-width: 2px !important;
+      }
+    
+      // Estilo cuando el checkbox está deshabilitado
+      &.mat-checkbox-disabled {
+        .mat-checkbox-frame {
+          border-color: rgba(0, 0, 0, 0.26) !important;
+        }
+        
+        .mat-checkbox-background {
+          background-color: rgba(0, 0, 0, 0.12) !important;
+        }
+      }
+    
+      // Efecto hover
+      &:not(.mat-checkbox-disabled):hover {
+        .mat-checkbox-frame {
+          border-color: #3f51b5 !important;
+        }
+      }
+    }
+    
+    // Estilos adicionales para la tabla
+    .permissions-table {
+      .checkbox-column {
+        text-align: center;
+        padding: 8px;
+        
+        // Centrar el checkbox en la celda
+        .mat-checkbox {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

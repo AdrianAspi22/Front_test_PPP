@@ -1,0 +1,16 @@
+<ng-container>
+    <div
+        class="flex range-date items-center bg-white border border-am-main-blue-light rounded-lg overflow-hidden w-full mx-auto h-11">
+        <div class="flex items-center justify-center pl-4 w-full" matTooltip="Filtrar por rango de fechas">
+            <mat-date-range-input [formGroup]="range" [rangePicker]="rDate" [max]="maxDate">
+                <input readonly matStartDate formControlName="startDate" placeholder="dd/mm/aaaa">
+                <input readonly matEndDate formControlName="endDate" placeholder="dd/mm/aaaa"
+                    (dateInput)="addEnvent($event)">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="rDate">
+                <mat-icon class="text-am-main-blue" matDatepickerToggleIcon fontIcon="today"></mat-icon>
+            </mat-datepicker-toggle>
+            <mat-date-range-picker #rDate></mat-date-range-picker>
+        </div>
+    </div>
+</ng-container>

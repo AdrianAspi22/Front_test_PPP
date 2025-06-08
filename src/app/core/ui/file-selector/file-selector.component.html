@@ -1,0 +1,70 @@
+<!--  <div class="flex justify-between"> -->
+  <div class="mb-4 mt-10">
+    <button
+      type="button"
+      mat-button
+      class="text-am-purple text-sm h-10 font-medium w-full rounded-xl"
+      (click)="fileSelector.click()"
+    >
+      Subir archivo <mat-icon fontIcon="attach_file"></mat-icon>
+    </button>
+    <input
+      type="file"
+      hidden
+      #fileSelector
+      (change)="selectedFiles($event)"
+      accept="image/png, image/jpg, image/jpeg, application/pdf, text/csv"
+    />
+  </div>
+  <div>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" class="justify-center">
+    <div *ngIf="fileBase64 && fileType.startsWith('image/')">
+      <img
+        [src]="'data:' + fileType + ';base64,' + fileBase64" width="200" height="200"
+        class="border border-dashed border-am-main-blue-light rounded flex flex-col justify-between"
+      />
+    </div>
+    <div *ngIf="fileType === 'application/pdf'">
+      <div class="w-42 h-32 p-4 border border-dashed border-am-main-blue-light rounded flex flex-col justify-between items-center">
+        <mat-icon fontIcon="picture_as_pdf"></mat-icon> PDF cargado
+      </div>
+    </div>
+
+    <div *ngIf="fileType === 'text/csv'">
+      <div class="w-42 h-32 p-4 border border-dashed border-am-main-blue-light rounded flex flex-col justify-between items-center">
+        <mat-icon fontIcon="list_alt"></mat-icon> CSV cargado
+      </div>
+    </div>
+  </div>
+
+    <div *ngIf="fileName">
+      <p class="file-name">{{ fileName | shortenFilename:20 }}</p>
+      <p class="file-size">{{ getReadableFileSize(fileSize) }}</p>
+    </div>
+
+    <div *ngIf="urlCurrentFile && !fileBase64">
+      <div *ngIf="isImage(urlCurrentFile)">
+        <img
+          [src]="urlCurrentFile" width="200" height="200"
+          class="w-42 h-32 border border-dashed border-am-main-blue-light rounded flex flex-col justify-between"
+        />
+      </div>
+      <div *ngIf="isPdf(urlCurrentFile)">
+        <div  class="w-42 h-32 p-4 border border-dashed border-am-main-blue-light rounded flex flex-col justify-between items-center">
+          <mat-icon fontIcon="picture_as_pdf"></mat-icon> PDF Cargado
+        </div>
+      </div>
+      <div *ngIf="isCsv(urlCurrentFile)">
+        <div  class="w-42 h-32 p-4 border border-dashed border-am-main-blue-light rounded flex flex-col justify-between items-center">
+          <mat-icon fontIcon="list_alt"></mat-icon> CSV Cargado
+        </div>
+      </div>
+
+      <div *ngIf="urlCurrentFile">
+        <p class="file-name">{{ getFileName(urlCurrentFile) | shortenFilename:16 }}</p>
+        <p class="file-size">{{ getReadableFileSize(fileSize) }}</p>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+

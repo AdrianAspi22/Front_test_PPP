@@ -1,0 +1,117 @@
+<div [formGroup]="form">
+   
+    <div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+        <div class="flex justify-between header-modal-title w-full">
+            <h2 class="headline m-0 text-xl text-accent">
+                <strong>Actualizar Usuario</strong>
+            </h2>
+            <button class="text-secondary button-close" mat-dialog-close mat-icon-button>
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-dialog-content>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Nombres</mat-label>
+                <input matInput formControlName="firstName" />
+                <mat-error *ngIf="form.get('firstName').invalid">{{ getErrorMessage('firstName') }}</mat-error> 
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Apellidos</mat-label>
+                <input matInput formControlName="lastName" />
+                <mat-error *ngIf="form.get('lastName').invalid">{{ getErrorMessage('lastName') }}</mat-error> 
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Usuario</mat-label>
+                <input matInput formControlName="userLogin" />
+                <mat-error *ngIf="form.get('userLogin').invalid">{{ getErrorMessage('userLogin') }}</mat-error> 
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Correo</mat-label>
+                <input matInput formControlName="email" />
+                <mat-error *ngIf="form.get('email').invalid">{{ getErrorMessage('email') }}</mat-error> 
+            </mat-form-field>
+        </div>
+
+       <!--  <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Telefono</mat-label>
+                <input matInput formControlName="phoneNumber" />
+                <mat-error *ngIf="form.get('phoneNumber').invalid">{{ getErrorMessage('phoneNumber') }}</mat-error> 
+            </mat-form-field>
+        </div> -->
+
+
+     <!--    <div fxLayout="row" fxLayoutGap="16px">
+            <div class="w-full">
+                <mat-form-field appearance="outline" fxFlex="100" class="w-full">
+                    <mat-label>Sucursal</mat-label>
+                    <mat-select formControlName="branchOfficeId"
+                        (selectionChange)="branchOfficeSelect()">
+                        <mat-option *ngFor="let val of BranchOfficeData" [value]="val.branchOfficeId">
+                            {{val.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.get('branchOfficeId').invalid">{{ getErrorMessage('branchOfficeId') }}</mat-error> 
+                </mat-form-field>                
+            </div>            
+        </div> -->
+
+      <!--   <div fxLayout="row" fxLayoutGap="16px">
+            <div class="w-full">
+                <mat-form-field appearance="outline" fxFlex="100" class="w-full">
+                    <mat-label>Cargo</mat-label>
+                    <mat-select formControlName="chargeId"
+                        (selectionChange)="chargeSelect()">
+                        <mat-option *ngFor="let val of ChargeData" [value]="val.chargeId">
+                            {{val.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.get('chargeId').invalid">{{ getErrorMessage('chargeId') }}</mat-error> 
+                </mat-form-field>                
+            </div>            
+        </div> -->
+
+       <!--  <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Cargo (ID)</mat-label>
+                <input matInput formControlName="chargeId" />
+                <mat-error *ngIf="form.get('chargeId').invalid">{{ getErrorMessage('chargeId') }}</mat-error> 
+            </mat-form-field>
+        </div>-->
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <div class="w-full">
+                <mat-form-field appearance="outline" fxFlex="100" class="w-full">
+                    <mat-label>Reporta a:</mat-label>
+                    <mat-select formControlName="userId"
+                        (selectionChange)="userSelect()">
+                        <mat-option *ngFor="let val of UserData" [value]="val.id">
+                            {{val.userFullName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.get('userId').invalid">{{ getErrorMessage('userId') }}</mat-error> 
+                </mat-form-field>                
+            </div>            
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>CANCELAR</button>
+        <button mat-raised-button color="primary" (click)="updateProfile()"
+            [disabled]="form.invalid || disableRegisterButton">
+            GUARDAR
+        </button>
+    </mat-dialog-actions>
+</div>

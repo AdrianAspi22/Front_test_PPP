@@ -1,0 +1,50 @@
+<!-- permission-update.component.html -->
+<div class="permissions-container">
+  <mat-card class="permission-card">
+    <!-- Header -->
+    <div class="card-header">
+      <div class="header-content">
+        <h2 class="header-title" *ngIf="permissionData">
+          <mat-icon class="header-icon">admin_panel_settings</mat-icon>
+          <span @fadeInRight>Gestionar Permisos para el ROL {{permissionData.roleName}}</span>
+        </h2>
+        <button mat-raised-button 
+                class="update-button"
+                color="accent"
+                [disabled]="disableRegisterButton" 
+                (click)="EditPermissionByRoleId()"
+                matTooltip="Actualizar permisos">
+          <mat-icon>save</mat-icon>
+          ACTUALIZAR
+        </button>
+      </div>
+    </div>
+
+    <!-- Table Content -->
+    <div class="table-wrapper">
+      <div class="table-scroll">
+        <table class="permissions-table">
+          <thead>
+            <tr>
+              <th class="module-column">Módulo/Acción</th>
+              <th *ngFor="let action of actions" class="action-column">{{ action }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let entity of entities; let even = even" [class.even-row]="even">
+              <td class="module-column">{{ entity }}</td>
+              <td *ngFor="let action of actions" class="checkbox-column">
+                <mat-checkbox 
+                  [checked]="permissionsMap[entity][action]?.selected"
+                  [disabled]="permissionsMap[entity][action]?.disabled"
+                  (change)="onCheckboxChange(entity, action, $event)"
+                  class="permission-checkbox">
+                </mat-checkbox>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-card>
+</div>

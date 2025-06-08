@@ -1,0 +1,43 @@
+<mat-table [dataSource]="dataSource" class="table h-full overflow-x-auto flex-col relativew-full mb-4">
+
+    <!-- Column Definitions -->
+    <ng-container *ngFor="let column of columnsItem" [matColumnDef]="column.key">
+        <mat-header-cell class="table-header" *matHeaderCellDef> {{ column.header }}</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element[column.key] }}</mat-cell>
+    </ng-container>
+
+    <!-- Columna de Acciones -->
+    <ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell class="table-header" *matHeaderCellDef> Acciones</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="actions[0] == 1">
+                    <button mat-icon-button color="warn" (click)="activeAction(element['id'])">
+                        <mat-icon fontIcon="block"></mat-icon>
+                    </button>
+                </ng-container>
+                <ng-container *ngIf="actions[1] == 1">
+                    <button mat-icon-button color="primary" (click)="editAction(element['id'])">
+                        <mat-icon fontIcon="border_color"></mat-icon>
+                    </button>
+                </ng-container>
+                <ng-container *ngIf="actions[2] == 1">
+                    <button mat-icon-button color="primary" (click)="showAction(element['id'])">
+                        <mat-icon fontIcon="search"></mat-icon>
+                    </button>
+                </ng-container>
+                <ng-container *ngIf="actions[3] == 1">
+                    <button mat-icon-button color="warn" (click)="deleteAction(element['id'])">
+                        <mat-icon fontIcon="delete_forever"></mat-icon>
+                    </button>
+                </ng-container>
+
+
+            </mat-cell>
+        </ng-container>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="mat-header-row"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>

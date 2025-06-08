@@ -1,0 +1,16 @@
+<div class="calendar-wrapper">
+  <div class="calendar-header">
+    <h2>Calendario Académico</h2>
+    <button mat-raised-button color="primary" class="create-button" (click)="openCreateEventDialog()">
+      <mat-icon>add</mat-icon>
+      Crear Evento
+    </button>
+  </div>
+  <div class="calendar-container">
+    <full-calendar
+      [options]="calendarOptions"
+      (ready)="handleCalendarReady($event)"
+    >
+    </full-calendar>
+  </div>
+</div> 

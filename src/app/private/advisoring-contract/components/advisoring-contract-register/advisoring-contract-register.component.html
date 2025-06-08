@@ -1,0 +1,123 @@
+<app-breadcrumbs title="SOLICITUD DE ASESORÍA" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="submitRequest()" #form="ngForm">
+      <div class="row g-4">
+        <!-- Primera fila -->
+        <div class="col-12">
+          <h5 class="mb-3">Información del Grupo de Investigación</h5>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label" for="groupId">Grupo de Investigación</label>
+                <select class="form-select" [(ngModel)]="researchGroupId" 
+                        (ngModelChange)="onGroupSelected($event)" name="groupId" required>
+                  <option [ngValue]="null">Selecciona un grupo</option>
+                  <option *ngFor="let group of groups" [ngValue]="group.researchGroupId">
+                    {{ group.researchGroupName }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label" for="lineId">Línea de Investigación</label>
+                <select class="form-select" [(ngModel)]="researchLineId" 
+                        (ngModelChange)="onLineSelected($event)" name="lineId" 
+                        required [disabled]="!researchGroupId">
+                  <option [ngValue]="null">Selecciona una línea</option>
+                  <option *ngFor="let line of lines" [ngValue]="line.researchLineId">
+                    {{ line.researchLineName }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label" for="areaId">Área de Investigación</label>
+                <select class="form-select" [(ngModel)]="researchAreaId" 
+                        (ngModelChange)="onAreaSelected($event)" name="areaId" 
+                        required [disabled]="!researchLineId">
+                  <option [ngValue]="null">Selecciona un área</option>
+                  <option *ngFor="let area of areas" [ngValue]="area.researchAreaId">
+                    {{ area.researchAreaName }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Segunda fila -->
+        <div class="col-12">
+          <h5 class="mb-3">Información del Asesor</h5>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-label" for="docenteId">Docente Asesor</label>
+                <select class="form-select" [(ngModel)]="docenteId" 
+                        name="docenteId" required>
+                  <option [ngValue]="null">Selecciona un asesor</option>
+                  <option *ngFor="let advisor of advisors" [value]="advisor.actorId">
+                    {{ advisor.actorFirstName }} {{ advisor.actorLastName }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tercera fila -->
+        <div class="col-12">
+          <h5 class="mb-3">Detalles del Contrato</h5>
+          <div class="row g-3">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-label" for="subject">Asunto</label>
+                <input type="text" class="form-control" [(ngModel)]="subject" 
+                       name="subject" required placeholder="Ingrese el asunto del contrato">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-label" for="description">Descripción</label>
+                <textarea class="form-control" [(ngModel)]="description" 
+                          name="description" rows="4" required 
+                          placeholder="Describa los detalles del contrato"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="col-12">
+          <div class="d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-secondary">CANCELAR</button>
+            <button type="submit" class="btn btn-primary" 
+                    [disabled]="form.invalid">SOLICITAR</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  @if (showModal) {
+    <div class="modal-overlay" (click)="closeModal($event)">
+      <div class="modal-container">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">¡Éxito!</h2>
+          </div>
+          <div class="modal-body">
+            <p>La Solicitud ha sido creada con éxito y se ha notificado al correo del Docente.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="modal-button" (click)="closeModal()">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+</div>
+

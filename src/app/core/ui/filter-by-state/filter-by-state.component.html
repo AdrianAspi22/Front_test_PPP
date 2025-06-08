@@ -1,0 +1,12 @@
+<ng-container>
+  <div class="flex items-center bg-white border border-am-main-blue-light rounded-lg overflow-hidden w-full mx-auto h-11">
+    <div class="flex items-center justify-center pl-2 pr-2 w-full" matTooltip="Filtrar Estado">
+      <mat-select [(ngModel)]="activeItem" (change)="setFilter($event, items)" class="ml-5 mr-5 w-full">
+        <mat-option *ngFor="let item of items" [value]="item.id" (click)="optionClick(item)">
+          <mat-icon [ngClass]="item.class?.icon" [fontIcon]="item.icon">
+          </mat-icon> {{ item.label }}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+</ng-container>

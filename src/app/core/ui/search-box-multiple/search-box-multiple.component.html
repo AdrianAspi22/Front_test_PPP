@@ -1,0 +1,50 @@
+<ng-container>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="flex items-center bg-white border border-am-main-blue-light rounded-lg overflow-hidden w-full mx-auto h-11">
+            <button
+                    type="button"
+                    *ngIf="searchOptions.length > 1"
+                    [matMenuTriggerFor]="menu"
+                    class="flex items-center ml-1 text-blue-500 bg-white button-menu">
+
+                <mat-icon class="mt-1 text-blue-500" fontIcon="{{labelSelection.icon}}"></mat-icon>
+                <mat-icon class="mt-1 text-blue-500" fontIcon="arrow_drop_down"></mat-icon>
+            </button>
+            <button mat-icon-button
+                    type="submit"
+                    [disabled]="form.invalid"
+                    class="bg-white rounded-sm text-am-purple-dark button-menu search-icon">
+                <mat-icon class="flex-none" fontIcon="search"></mat-icon>
+            </button>
+            <input
+                    class="desktop border-0 outline-none placeholder:text-secondary bg-card flex-auto mr-2"
+                    type="text"
+                    matInput
+                    formControlName="searchData"
+                    matTooltip="{{ labelSelection.validation_desc }}"
+                    placeholder="{{ labelSelection.placeholder }}">
+            <button mat-icon-button color="primary"
+                    (click)="reset()"
+                    *ngIf="form.valid"
+                    @scaleInOut
+                    class="mr-2">
+                <mat-icon class="flex-none" fontIcon="close"></mat-icon>
+            </button>
+            <mat-menu
+                #menu
+                class="shadow-2xl">
+                <button
+                        mat-menu-item
+                        *ngFor="let option of searchOptions"
+                        (click)="changeSelection(option)">
+
+                    <mat-icon class="text-blue-500" fontIcon="{{option.icon}}"></mat-icon>
+                    <span
+                            [ngClass]="{'font-bold text-blue-500': option == labelSelection}">
+                        {{ option.label }}
+                    </span>
+                </button>
+            </mat-menu>
+        </div>
+    </form>
+</ng-container>

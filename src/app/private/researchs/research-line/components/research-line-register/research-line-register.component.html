@@ -1,0 +1,49 @@
+<div class="modal-content">
+    <div class="modal-header bg-light p-3">
+        <h5 class="modal-title" id="exampleModalLabel">{{formName}} LÍNEA DE INVESTIGACIÓN</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"
+            (click)="activeModal.dismiss('Cross click')"></button>
+    </div>
+
+    <div class="modal-body">
+        <form [formGroup]="form" class="tablelist-form" autocomplete="off">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="firstname-field" class="form-label">Nombre de la Línea</label>
+                    <input type="text" id="firstname-field" class="form-control" placeholder="Ingrese Nombre..."
+                        required formControlName="name"
+                        [ngClass]="{ 'is-invalid': submitted && form['name'].errors }" />
+                    <div class="invalid-feedback">Por favor ingrese Nombre de la línea de investigación.</div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="researchGroupId" class="form-label">Grupo de Investigación</label>
+                    <select id="researchGroupId" class="form-select" formControlName="researchGroupId"
+                        (change)="onGroupChange($event)">
+                        <option *ngFor="let group of GroupAcronym" [value]="group.researchGroupId">{{ group.acronym }}
+                        </option>
+                    </select>
+                    <div class="invalid-feedback">Por favor seleccione Grupo de investigación.</div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="researchAreaId" class="form-label">Área de Investigación</label>
+                    <select id="researchAreaId" class="form-select" formControlName="researchAreaId">
+                        <option *ngFor="let area of AreaName" [value]="area.id">{{ area.name }}</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor seleccione Área de investigación.</div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <div class="hstack gap-2 justify-content-end">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal"
+                (click)="activeModal.dismiss('Cross click')">CANCELAR</button>
+            <button type="submit" class="btn btn-success" id="add-btn"
+                [disabled]="form.invalid || disableRegisterButton" (click)="researchLineSave()">AGREGAR</button>
+        </div>
+    </div>
+
+</div>

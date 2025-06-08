@@ -1,0 +1,48 @@
+<div class="modal-content">
+    <div class="modal-header bg-light p-3">
+        <h5 class="modal-title" id="exampleModalLabel">{{formName}} GRUPO DE INVESTIGACIÓN</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"
+            (click)="activeModal.dismiss('Cross click')"></button>
+    </div>
+
+    <div class="modal-body">
+        <form [formGroup]="form" class="tablelist-form" autocomplete="off">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="firstname-field" class="form-label">Nombre del Grupo</label>
+                    <input type="text" id="firstname-field" class="form-control" placeholder="Ingrese Nombre..."
+                        required formControlName="name"
+                        [ngClass]="{ 'is-invalid': submitted && form['name'].errors }" />
+                    <div class="invalid-feedback">Por favor ingrese Nombre del grupo.</div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="lastname-field" class="form-label">Acrónimo</label>
+                    <input type="text" id="lastname-field" class="form-control" placeholder="Ingrese Acrónimo..."
+                        required formControlName="acronym"
+                        [ngClass]="{ 'is-invalid': submitted && form['acronym'].errors }" />
+                    <div class="invalid-feedback">Por favor ingrese el Acrónimo.</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label for="academicdegree-field" class="form-label">Objetivo</label>
+                    <textarea type="text" id="academicdegree-field" class="form-control"
+                        placeholder="Ingrese objetivo..." required formControlName="objective"
+                        [ngClass]="{ 'is-invalid': submitted && form['objective'].errors }"></textarea>
+                    <div class="invalid-feedback">Por favor ingrese el Objetivo</div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <div class="hstack gap-2 justify-content-end">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal"
+                (click)="activeModal.dismiss('Cross click')">CANCELAR</button>
+            <button type="submit" class="btn btn-success" id="add-btn"
+                [disabled]="form.invalid || disableRegisterButton" (click)="researchGroupSave()">AGREGAR</button>
+        </div>
+    </div>
+</div>

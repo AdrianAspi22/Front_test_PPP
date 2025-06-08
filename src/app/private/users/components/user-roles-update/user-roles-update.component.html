@@ -1,0 +1,73 @@
+<!-- ============================================================== -->
+<!-- Fixed height Card Grid-->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <mat-card>
+            <mat-card-header class="bg-header-content flex-none p-1 mat-elevation-z2">
+                <div class="flex items-center justify-between w-full">
+                    <h2 class="headline text-slate-50 flex items-center w-full">
+                        <mat-icon @scaleIn class="hidden sm:block">toc</mat-icon>
+                        <span @fadeInRight class="ml-4 block"
+                              *ngIf="userName">Asignar Perfiles al usuario {{ userName }}</span>
+                    </h2>
+                </div>
+
+                <div class="flex items-center justify-end w-full mb-4 mt-1 container">
+
+
+                    <div class="ml-4 mr-2 mt-1">
+                        <button mat-raised-button color="accent" (click)="UpdateRoleUser()"
+                                matTooltip="Actualizar permisos" [disabled]="!isAnyCheckboxChecked">ACTUALIZAR
+                        </button>
+                    </div>
+                </div>
+            </mat-card-header>
+            <mat-card-content class="p-0 mat-elevation-z8">
+                <mat-list class="p-0">
+                    <div class="h-full overflow-hidden">
+                        <div class="h-full flex-col relative  mb-4 ">
+                            <div class="mat-elevation-z2 m-5">
+                                <div class="overflow-container">
+                                    <div class="overflow-content">
+                                        <table class="customer-profile-table table-list w-full">
+                                            <thead class="mat-header-row">
+                                            <tr class="text-center text-sm font-bold">
+                                                <th>N°</th>
+                                                <th>Nombre</th>
+                                                <th>DESCRIPCIÓN</th>
+                                                <th>SELECCIONAR</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <ng-container *ngIf="roleData != null">
+                                                <tr class="text-center" *ngFor="let item of roleData; let i = index">
+                                                    <td class="vertical-item-center" scope="row">{{ i + 1 }}</td>
+                                                    <td class="vertical-item-center">{{ item.roleName }}</td>
+                                                    <td class="vertical-item-center">{{ item.roleDescription }}</td>
+                                                    <td>
+                                                        <mat-checkbox class="example-margin"
+                                                                      [(ngModel)]="selectedStates[i]"
+                                                                      [checked]="stateValue[i]"
+                                                                      (change)="onCheckboxChange()"></mat-checkbox>
+                                                    </td>
+                                                </tr>
+                                            </ng-container>
+                                            <ng-container *ngIf="roleData == null">
+                                                <tr class="text-center">
+                                                    <td colspan="3">No hay datos</td>
+                                                </tr>
+                                            </ng-container>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div [formGroup]="form">
+    <div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+        <div class="flex justify-between header-modal-title w-full">
+            <h2 class="headline m-0 text-xl text-accent">
+                <strong>Registrar Perfil</strong>
+            </h2>
+            <button class="text-secondary button-close" mat-dialog-close mat-icon-button>
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-dialog-content>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name"/>
+                <mat-error *ngIf="form.get('name').hasError('required')">
+                    Campo Nombre es requerido.
+                </mat-error>
+                <mat-error *ngIf="form.get('name').hasError('minlength')">
+                    El Nombre debe tener al menos {{ form.get('name').getError('minlength').requiredLength }}
+                    caracteres.
+                </mat-error>
+                <mat-error *ngIf="form.get('name').hasError('maxlength')">
+                    El Nombre no puede tener más de {{
+                        form.get('name').getError('maxlength').requiredLength
+                    }}
+                    caracteres.
+                </mat-error>
+                <mat-error *ngIf="form.get('name').hasError('IsNotTextOrSpace')">
+                    El Nombre debe ser solo texto.
+                </mat-error>
+                <mat-error *ngIf="form.get('name').hasError('hasSpaces')">
+                    El Nombre debe tener espacios.
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Descripción</mat-label>
+                <input matInput formControlName="description"/>
+                <mat-error *ngIf="form.get('description').hasError('required')">
+                    Campo Descripción es requerido.
+                </mat-error>
+                <mat-error *ngIf="form.get('description').hasError('minlength')">
+                    La Descripción debe tener al
+                    menos {{ form.get('description').getError('minlength').requiredLength }}
+                    caracteres.
+                </mat-error>
+                <mat-error *ngIf="form.get('description').hasError('maxlength')">
+                    La Descripción no puede tener más de {{
+                        form.get('description').getError('maxlength').requiredLength
+                    }}
+                    caracteres.
+                </mat-error>
+                <mat-error *ngIf="form.get('description').hasError('IsNotTextOrSpace')">
+                    La Descripción debe ser solo texto.
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>CANCELAR</button>
+        <button mat-raised-button color="primary" (click)="RoleRegister()"
+                [disabled]="form.invalid || disableRegisterButton">
+            GUARDAR
+        </button>
+    </mat-dialog-actions>
+</div>

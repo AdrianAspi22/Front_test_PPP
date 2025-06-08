@@ -1,0 +1,52 @@
+
+
+
+
+
+<!-- ============================================================== -->
+<!-- Fixed height Card Grid-->
+<!-- ============================================================== -->
+<div class="row">
+	<div class="col-12">
+		<mat-card>
+      <mat-card-header class="bg-header-content flex-none p-1 mat-elevation-z2">
+          <div class="flex items-center justify-between w-full">
+            <h2 class="headline text-slate-50 flex items-center w-full">
+              <!-- <mat-icon @scaleIn class="hidden sm:block">toc</mat-icon> -->
+              <span @fadeInRight class="ml-4 block">Gestión de Usuarios</span>
+            </h2>
+          </div>
+
+          <div class="flex items-center justify-end w-full mb-4 mt-1 container">
+            <div class="ml-4 width-small-device" >
+             <!--  <app-filter-by-state [currentMenu]="component.getInputs.stateFilter"
+              [items]="component.menuItems" (filterChange)="setData($event)" >
+            </app-filter-by-state> -->
+          </div>
+
+          <div class="ml-4 width-small-device" >
+            <!-- <app-search-box-multiple [searchOptions]="component.searchOptions" (search)="search($event)"
+              [currentValue]="component.filters.textFilter">
+            </app-search-box-multiple> -->
+          </div>
+
+            <div class="ml-4 mr-2 mt-1">
+              <button mat-raised-button color="accent" (click)="openDialogRegister()"
+                matTooltip="Registrar">AGREGAR</button>
+            </div>
+          </div>
+      </mat-card-header>
+			<mat-card-content class="p-0 mat-elevation-z8">				
+				<mat-list class="p-0">
+          <div class="h-full overflow-hidden">
+            <app-list-table-simple [service]="_userService" [columns]="component.tableColumns"
+              [actions]="actions"    (editEvent)="onOpenUpdateProfile($event)" 
+              (activeEvent)="onChangeState($event)" (manageRoleEvent)="OpenUpdateUserRole($event)" 
+              (showEvent)="onView($event)" (changePasswordEvent)="onOpenChangePassword($event)" >
+            </app-list-table-simple>            
+          </div>
+        </mat-list>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>

@@ -1,0 +1,136 @@
+{
+  "HEADER": {
+    "MORE": {
+      "TEXT": "Más"
+    }
+  },
+  "MENUITEMS": {
+    "MENU": {
+      "TEXT": "MENÚ"
+    },
+    "DASHBOARD": {
+      "TEXT": "Tableros",
+      "BADGE": "Nuevo",
+      "LIST": {
+        "TEACHER": "Docente"
+      }
+    },
+    "APPS": {
+      "TEXT": "aplicaciones",
+      "LIST": {
+        "CALENDAR": "Calendario",
+        "MAINCALENDAR": "Calendario principal",
+        "MONTHGRID": "Cuadrícula del mes",
+        "CHAT": "Chat",
+        "EMAIL": "Correo electrónico",
+        "PROJECTS": "Proyectos",
+        "TASK": "Tareas",
+        "FILEMANAGER": "Administradora de archivos",
+        "APIKEY": "Clave API"
+      }
+    },
+    "LAYOUTS": {
+      "TEXT": "Diseños",
+      "LIST": {
+        "HORIZONTAL": "Horizontal",
+        "DETACHED": "Separado",
+        "TWOCOLUMN": "dos columnas",
+        "HOVERED": "flotando"
+      }
+    },
+    "CORE": {
+      "TEXT": "Paginas"
+    },
+    "AUTHENTICATION": {
+      "TEXT": "Autenticación",
+      "LIST": {
+        "BASIC": "Básico",
+        "COVER": "Cubrir",
+        "SIGNIN": "Iniciar sesión",
+        "SIGNUP": "Inscribirse",
+        "PASSWORDRESET": "Restablecimiento de contraseña",
+        "PASSWORDCREATE": "Crear contraseña",
+        "LOCKSCREEN": "Bloquear pantalla",
+        "LOGOUT": "Cerrar sesión"
+      }
+    },
+    "PAGES": {
+      "TEXT": "Páginas",
+      "LIST": {
+        "PROFILE": "Perfil"
+      }
+    },
+    "RESEARCHS": {
+      "TEXT": "Investigación",
+      "LIST": {
+        "RESEARCHGROUP": "Grupo de Investigación",
+        "RESEARCHAREA": "Área de Investigación",
+        "RESEARCHLINE":"Línea de Investigación",
+        "ADVISOR":"Asesor"
+      }
+    },
+    "BASEUI": {
+      "TEXT": "Interfaz de usuario básica",
+      "LIST": {
+        "ALERTS": "Alertas",
+        "BADGES": "Insignias",
+        "BUTTONS": "Botones",
+        "COLORS": "Colores",
+        "CARDS": "Tarjetas",
+        "DROPDOWNS": "Listas deplegables",
+        "GRID": "Cuadrícula",
+        "IMAGES": "Imágenes",
+        "TABS": "Pestañas",
+        "ACCORDION&COLLAPSE": "Acordeón y colapsar",
+        "MODALS": "modales",
+        "OFFCANVAS": "Offcanvas",
+        "PLACEHOLDERS": "Marcadores de posición",
+        "PROGRESS": "Progreso",
+        "NOTIFICATIONS": "Notificaciones",
+        "TYPOGRAPHY": "Tipografía",
+        "LISTS": "Liza",
+        "LINKS": "Enlaces",
+        "GENERAL": "General"
+      }
+    },
+    "ADVANCEUI": {
+      "TEXT": "Interfaz de usuario avanzada",
+      "BADGE": "Nuevo",
+      "LIST": {
+        "SWEETALERTS": "Dulces alertas",
+        "TOUR": "Excursión"
+      }
+    },
+    "WIDGETS": {
+      "TEXT": "Widgets"
+    },
+    "FORMS": {
+      "TEXT": "Formularios",
+      "LIST": {
+        "BASICELEMENTS": "Elementos basicos",
+        "FORMSELECT": "Selección de formulario",
+        "CHECKBOXS&RADIOS": "Casillas de verificación y radios",
+        "PICKERS": "recolectores",
+        "INPUTMASKS": "Máscaras de entrada",
+        "ADVANCED": "Avanzado",
+        "RANGESLIDER": "Deslizador de rango",
+        "VALIDATION": "Validación",
+        "WIZARD": "Mago",
+        "EDITORS": "Editores",
+        "FILEUPLOADS": "Cargas de archivos",
+        "FORMLAYOUTS": "Diseños de formulario"
+      }
+    },
+    "ICONS": {
+      "TEXT": "Iconos",
+      "LIST": {
+        "REMIX": "remezclar",
+        "BOXICONS": "iconos de caja",
+        "MATERIALDESIGN": "Diseño de materiales",
+        "LINEAWESOME": "línea impresionante",
+        "FEATHER": "Pluma",
+        "CRYPTOSVG": "Cripto SVG"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="calendar-container">
+  <h2>Registro de Horarios Disponibles</h2>
+  <div class="calendar-wrapper">
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+</div>
+
+<div class="create-button-container">
+  <button mat-raised-button [matMenuTriggerFor]="menu" class="create-button">
+    <mat-icon>add</mat-icon>
+    Crear
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onCreate('event')">
+      <mat-icon>event</mat-icon>
+      <span>Evento</span>
+    </button>
+    <button mat-menu-item (click)="onCreate('task')">
+      <mat-icon>assignment</mat-icon>
+      <span>Tarea</span>
+    </button>
+    <button mat-menu-item (click)="onCreate('appointment')">
+      <mat-icon>schedule</mat-icon>
+      <span>Agenda de citas</span>
+    </button>
+  </mat-menu>
+</div> 

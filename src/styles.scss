@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$bodyfont: 'Kanit', sans-serif;
+$headingfont: 'Kanit', sans-serif;
+
+// Estilos globales
+html, body { 
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Swiper
+.coverflowslide {
+  .slide {
+    position: relative;
+    transition: transform 0.3s;
+  }
+
+  .slick-list {
+    overflow: hidden !important;
+  }
+
+  .slick-center {
+    transform: scale(1.2);
+    z-index: 1;
+  }
+
+  .carousel {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.space .slick-slide {
+  margin: 10px;
+}
+
+#notificationItemsTabContent {
+  .avatar-title {
+    height: 30px !important;
+    width: 30px !important;
+  }
+}
+
+[data-bs-theme="dark"] {
+  .fc {
+    .fc-multimonth-daygrid {
+      background: #212529 !important;
+    }
+
+    .fc-day-disabled {
+      background: #282b2e !important;
+    }
+
+    .fc-multimonth {
+      border-color: #32383e !important;
+    }
+  }
+}
+
+#landingnft {
+  .slick-dots {
+    bottom: -36px;
+    z-index: 1;
+    
+    .slick-active button {
+      background-color: #3577f1 !important;
+    }
+  }
+
+  .slick-dots li {
+    height: 7px !important;
+  }
+
+  .slick-dots li button {
+    width: 22px !important;
+    height: 5px !important;
+    border: none;
+    background-color: rgba(109,98,253,.2) !important;
+    padding: 0px;
+    margin: 0px;
+    transition: all .3s;
+    border-radius: 50px;
+    
+    &::before {
+      display: none;
+    }
+  }
+}

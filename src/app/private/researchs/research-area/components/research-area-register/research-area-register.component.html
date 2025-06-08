@@ -1,0 +1,36 @@
+<div class="modal-content">
+    <div class="modal-header bg-light p-3">
+        <h5 class="modal-title" id="exampleModalLabel">{{formName}} AREA DE INVESTIGACIÓN</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"
+            (click)="activeModal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="form" class="tablelist-form" autocomplete="off">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="nameArea-field" class="form-label">Nombre del Área</label>
+                    <input type="text" id="nameArea-field" class="form-control" placeholder="Ingrese Nombre..." required
+                        formControlName="name" [ngClass]="{ 'is-invalid': submitted && form['name'].errors }" />
+                    <div class="invalid-feedback">Por favor ingrese Nombre del área de investigación.</div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="acronymGroup" class="form-label">Grupo de Investigación</label>
+                    <select id="acronymGroup-field" class="form-select" formControlName="researchGroupId" required
+                        [ngClass]="{ 'is-invalid': submitted && form['researchGroupId'].errors }">
+                        <option *ngFor="let acronym of GroupAcronym" [value]="acronym.researchGroupId">{{
+                            acronym.acronym }}</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor seleccione Grupo de investigación.</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div class="hstack gap-2 justify-content-end">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal"
+                (click)="activeModal.dismiss('Cross click')">CANCELAR</button>
+            <button type="submit" class="btn btn-success" id="add-btn"
+                [disabled]="form.invalid || disableRegisterButton" (click)="researchAreaSave()">AGREGAR</button>
+        </div>
+    </div>
+</div>

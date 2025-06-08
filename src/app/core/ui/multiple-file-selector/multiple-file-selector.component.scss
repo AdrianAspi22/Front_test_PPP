@@ -1,0 +1,33 @@
+
+.margin-top {
+  margin-top: 1.25rem;
+}
+.preview-file {
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.preview-file:hover  {
+  filter: blur(.5px) brightness(80%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  
+}
+.border-am-main-gray-light:hover{
+  border-color:#0c65bd  !important;
+  transform: scale(1.02);
+}
+
+.clear-button {
+  margin-left: 144px;
+  top: -228px;
+  }
+  
+  .clear-button .icon-clear {
+    color: red;
+    font-weight: bold;
+    
+  }
+  .clear-button .icon-clear:hover{
+    transform: scale(1.2);
+  }
